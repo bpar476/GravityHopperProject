@@ -6,6 +6,10 @@
 public abstract class GravityWell : MonoBehaviour
 {
 
+    /// <summary>
+    /// The maximum distance between the pod and the well in which
+    /// the well can pull the pod
+    /// </summary>
     [SerializeField]
     private float wellRadius = 1.0f;
 
@@ -40,6 +44,7 @@ public abstract class GravityWell : MonoBehaviour
     private void OnMouseUp()
     {
         isBeingClicked = false;
+        PodInformation.Instance.IsBeingPulled = false;
     }
 
     private void Update()
@@ -51,6 +56,8 @@ public abstract class GravityWell : MonoBehaviour
 
             if (distance < wellRadius)
             {
+                pod.IsBeingPulled = true;
+
                 var rb = pod.GetComponent<Rigidbody>();
 
                 Vector3 directionFromPodToWell = transform.position - pod.transform.position;
@@ -58,6 +65,10 @@ public abstract class GravityWell : MonoBehaviour
                 movePodTowardsWell(rb, directionFromPodToWell, distance);
 
                 rb.velocity = rb.velocity.normalized * clampVelocityComponent(rb.velocity.magnitude) - new Vector3();
+            }
+            else
+            {
+                pod.IsBeingPulled = false;
             }
         }
     }
