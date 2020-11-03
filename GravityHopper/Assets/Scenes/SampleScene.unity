@@ -201,6 +201,7 @@ MonoBehaviour:
   coefficient: 0.1
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &172772187
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -313,6 +314,7 @@ MonoBehaviour:
   coefficient: 0.1
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &179250361
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1329,6 +1331,7 @@ MonoBehaviour:
   coefficient: 0.1
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &1360616666
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1441,6 +1444,7 @@ MonoBehaviour:
   coefficient: 0.2
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 3
 --- !u!135 &1487803378
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1736,7 +1740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4cfedb2dc184d42bf7fc5a4eccbf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deceleration: 5
+  decelarationPeriod: 3
 --- !u!1 &1593230082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1773,6 +1777,7 @@ MonoBehaviour:
   coefficient: 2
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &1593230084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1885,6 +1890,7 @@ MonoBehaviour:
   coefficient: 0.2
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &1709582075
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1997,6 +2003,7 @@ MonoBehaviour:
   coefficient: 0.1
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &1908938984
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2266,6 +2273,7 @@ MonoBehaviour:
   coefficient: 0.2
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!1 &2046086372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,6 +2391,7 @@ MonoBehaviour:
   coefficient: 0.2
   velocityClamp: 12
   rampTime: 0.5
+  orbitRadius: 1
 --- !u!135 &2106739431
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public abstract class GravityWell : MonoBehaviour
     /// the well can pull the pod
     /// </summary>
     [SerializeField]
-    private float wellRadius = 1.0f;
+    private float wellRadius = 20.0f;
 
     [SerializeField]
     /// <summary>
@@ -31,6 +31,13 @@ public abstract class GravityWell : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float rampTime = 0.5f;
+
+    /// <summary>
+    /// The radius from the well in which the pod starts to orbit instead of being
+    /// pulled directly to it
+    /// </summary>
+    [SerializeField]
+    private float orbitRadius = 1.0f;
 
     private bool isBeingClicked = false;
     private float clickTime;
@@ -57,14 +64,27 @@ public abstract class GravityWell : MonoBehaviour
             if (distance < wellRadius)
             {
                 pod.IsBeingPulled = true;
-
                 var rb = pod.GetComponent<Rigidbody>();
-
                 Vector3 directionFromPodToWell = transform.position - pod.transform.position;
 
-                movePodTowardsWell(rb, directionFromPodToWell, distance);
+                if (distance < orbitRadius)
+                {
+                    float normalZComponent = 0;
+                    float normalXComponent = 1 * Mathf.Sign(transform.position.y - pod.transform.position.y);
 
-                rb.velocity = rb.velocity.normalized * clampVelocityComponent(rb.velocity.magnitude) - new Vector3();
+                    float normalYComponent = (-(normalXComponent * directionFromPodToWell.x) - (normalZComponent * directionFromPodToWell.z)) / directionFromPodToWell.y;
+
+                    Vector3 normal = new Vector3(normalXComponent, normalYComponent, normalZComponent).normalized;
+
+                    rb.velocity = normal;
+                }
+                else
+                {
+                    movePodTowardsWell(rb, directionFromPodToWell, distance);
+
+                    rb.velocity = rb.velocity.normalized * clampVelocityComponent(rb.velocity.magnitude) - new Vector3();
+                }
+
             }
             else
             {
@@ -89,5 +109,7 @@ public abstract class GravityWell : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, wellRadius);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, orbitRadius);
     }
 }
