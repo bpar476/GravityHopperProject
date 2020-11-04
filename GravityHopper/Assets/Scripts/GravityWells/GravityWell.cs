@@ -5,6 +5,14 @@
 /// </summary>
 public abstract class GravityWell : MonoBehaviour
 {
+    // FIXME: Refactor me into multiple, smaller responsibility components
+
+    /// <summary>
+    /// Game object which will be enabled when the player is trying to
+    /// pull on the well but is out of the well's radius
+    /// </summary>
+    [SerializeField]
+    private GameObject rangeEffect;
 
     /// <summary>
     /// The maximum distance between the pod and the well in which
@@ -56,6 +64,7 @@ public abstract class GravityWell : MonoBehaviour
 
     private void Update()
     {
+        rangeEffect.SetActive(false);
         if (isBeingClicked)
         {
             var pod = PodInformation.Instance;
@@ -88,6 +97,7 @@ public abstract class GravityWell : MonoBehaviour
             }
             else
             {
+                rangeEffect.SetActive(true);
                 pod.IsBeingPulled = false;
             }
         }
