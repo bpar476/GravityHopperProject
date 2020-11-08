@@ -11,6 +11,12 @@ public class PodVelocityDecay : MonoBehaviour
     [SerializeField]
     private float decelarationPeriod = 3f;
 
+    /// <summary>
+    /// The speed that the pod will drift at after decelerating
+    /// </summary>
+    [SerializeField]
+    private float finalSpeed = 1.0f;
+
     private PodInformation podInformation;
     private Rigidbody rb;
 
@@ -29,7 +35,7 @@ public class PodVelocityDecay : MonoBehaviour
     private void StartSlowPodOverPeriod()
     {
         var initialVelocity = rb.velocity;
-        var targetVelocity = rb.velocity.normalized * 0.5f;
+        var targetVelocity = rb.velocity.normalized * finalSpeed;
 
         var slowStartTime = Time.fixedTime;
 
