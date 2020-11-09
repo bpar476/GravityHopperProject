@@ -2182,6 +2182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SquareVelocityGravityWell (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1274186505135789232, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1274186505135789247, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.35
@@ -7580,6 +7584,7 @@ GameObject:
   - component: {fileID: 1542766244}
   - component: {fileID: 1542766245}
   - component: {fileID: 1542766246}
+  - component: {fileID: 1542766247}
   m_Layer: 0
   m_Name: Pod
   m_TagString: Player
@@ -7705,6 +7710,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decelarationPeriod: 2
   finalSpeed: 1
+--- !u!114 &1542766247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542766239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f85e81e277f2034cadd27f362bcd305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angularVelocityCoefficient: 0.3
 --- !u!1 &1698722337
 GameObject:
   m_ObjectHideFlags: 0

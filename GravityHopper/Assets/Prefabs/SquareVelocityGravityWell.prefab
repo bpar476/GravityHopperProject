@@ -62,7 +62,7 @@ MonoBehaviour:
   rangeEffect: {fileID: 1274186506729276410}
   wellRadius: 23
   coefficient: 0.2
-  velocityClamp: 12
+  velocityClamp: 8
   rampTime: 0.5
   orbitRadius: 3
 --- !u!1 &1274186506729276410
