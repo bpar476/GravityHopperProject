@@ -5,13 +5,6 @@ using UnityEngine;
 public class PodOrientation : MonoBehaviour
 {
 
-    /// <summary>
-    /// Factor affecting how much the pod rotates
-    /// in relation to its velocity.
-    /// </summary>
-    [SerializeField]
-    private float angularVelocityCoefficient;
-
     private Rigidbody rb;
 
     private void Awake()
@@ -22,11 +15,12 @@ public class PodOrientation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateAngularVelocity();
-    }
-
-    private void UpdateAngularVelocity()
-    {
-        rb.angularVelocity = new Vector3(rb.velocity.magnitude * angularVelocityCoefficient, 0, 0);
+        if (rb.velocity.magnitude >= 0.1f)
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, rb.velocity);
+            // transform.LookAt()
+            // transform.rotation.SetLookRotation(transform.forward, Vector3.up);
+            // transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + rotationOffset);
+        }
     }
 }
