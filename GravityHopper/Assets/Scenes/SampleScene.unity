@@ -2366,8 +2366,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.5
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!23 &1542766241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3119,6 +3119,18 @@ PrefabInstance:
     - target: {fileID: 5892522350718863768, guid: 9b990555ae9b0444580c5a4bb5874fd1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892522350718863771, guid: 9b990555ae9b0444580c5a4bb5874fd1, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892522350718863771, guid: 9b990555ae9b0444580c5a4bb5874fd1, type: 3}
+      propertyPath: m_Size.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892522350718863771, guid: 9b990555ae9b0444580c5a4bb5874fd1, type: 3}
+      propertyPath: m_Size.z
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5892522350718863772, guid: 9b990555ae9b0444580c5a4bb5874fd1, type: 3}
       propertyPath: m_Name
