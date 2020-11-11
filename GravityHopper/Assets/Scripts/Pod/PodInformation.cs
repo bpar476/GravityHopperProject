@@ -5,30 +5,59 @@ public class PodInformation : MonoBehaviour
 {
     public static PodInformation Instance { get; private set; }
 
-    public event Action OnStopPulling;
-    public event Action OnStartPulling;
+    public bool IsBeingPulled { get { return isBeingPulled; } }
 
-    public bool IsBeingPulled
+    public event Action<Transform> OnStopPulling;
+    public event Action<Transform> OnStartPulling;
+
+    private GravityWell activeWell;
+
+    private bool isBeingPulled = false;
+
+    public void Grab(GravityWell well)
     {
-        get
+        if (well == null)
         {
-            return isBeingPulled;
+            Debug.Log("Being grabbed by null well. This can't be good");
+            return;
         }
-        set
+
+        if (activeWell != null)
         {
-            if (value && !isBeingPulled)
-            {
-                OnStartPulling?.Invoke();
-            }
-            else if (!value && isBeingPulled)
-            {
-                OnStopPulling?.Invoke();
-            }
-            isBeingPulled = value;
+            Debug.Log("Being pulled by two wells at once is not supported");
+            return;
+        }
+
+        // This would be a race condition if concurrent grabbing becomes allowed
+        if (!isBeingPulled)
+        {
+            activeWell = well;
+            OnStartPulling?.Invoke(well.transform);
+            isBeingPulled = true;
         }
     }
 
-    private bool isBeingPulled = false;
+    public void Release(GravityWell well)
+    {
+        if (well == null)
+        {
+            Debug.Log("Being grabbed by null well. This can't be good");
+            return;
+        }
+        if (activeWell != well)
+        {
+            Debug.Log("Can't be released by a well that isn't the active well");
+            return;
+        }
+
+        // This would be a race condition if concurrent grabbing becomes allowed
+        if (isBeingPulled)
+        {
+            activeWell = null;
+            isBeingPulled = false;
+            OnStopPulling?.Invoke(well.transform);
+        }
+    }
 
     private void Awake()
     {

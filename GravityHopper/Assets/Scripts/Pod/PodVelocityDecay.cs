@@ -32,7 +32,7 @@ public class PodVelocityDecay : MonoBehaviour
         podInformation.OnStopPulling += StartSlowPodOverPeriod;
     }
 
-    private void StartSlowPodOverPeriod()
+    private void StartSlowPodOverPeriod(Transform podTransform)
     {
         var initialVelocity = rb.velocity;
         var targetVelocity = rb.velocity.normalized * finalSpeed;

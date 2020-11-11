@@ -36,6 +36,11 @@ public class Hovl_Laser : MonoBehaviour
 
     void Update()
     {
+        if (target == null)
+        {
+            return;
+        }
+
         Laser.material.SetTextureScale("_MainTex", new Vector2(Length[0], Length[1]));
         Laser.material.SetTextureScale("_Noise", new Vector2(Length[2], Length[3]));
 
@@ -46,8 +51,6 @@ public class Hovl_Laser : MonoBehaviour
         if (Laser != null && UpdateSaver == false)
         {
             Laser.SetPosition(0, transform.position);
-
-            //End laser position if collides with object
             Laser.SetPosition(1, targetPosition);
 
             HitEffect.transform.position = targetPosition + targetNormal * HitOffset;
