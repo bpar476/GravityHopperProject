@@ -1820,11 +1820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218847627608472, guid: 5ef207190f0475843a714c18f0be30a4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4218847627608472, guid: 5ef207190f0475843a714c18f0be30a4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4218847627608472, guid: 5ef207190f0475843a714c18f0be30a4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1982,6 +1982,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1272918245280343873, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1274186505135789232, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
       propertyPath: m_Name
       value: SquareVelocityGravityWell (3)
@@ -1989,7 +1993,7 @@ PrefabInstance:
     - target: {fileID: 1274186505135789232, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 1274186505135789247, guid: 1608d69bcce91c84d837c718c5ecae09, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21.35

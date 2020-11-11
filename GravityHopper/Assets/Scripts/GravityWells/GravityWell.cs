@@ -12,7 +12,7 @@ public abstract class GravityWell : MonoBehaviour
     /// pull on the well but is out of the well's radius
     /// </summary>
     [SerializeField]
-    private GameObject rangeEffect;
+    private ParticleSystem rangeEffect;
 
     /// <summary>
     /// The maximum distance between the pod and the well in which
@@ -64,7 +64,6 @@ public abstract class GravityWell : MonoBehaviour
 
     private void Update()
     {
-        rangeEffect.SetActive(false);
         if (isBeingClicked)
         {
             var pod = PodInformation.Instance;
@@ -75,6 +74,10 @@ public abstract class GravityWell : MonoBehaviour
                 if (!pod.IsBeingPulled)
                 {
                     pod.Grab(this);
+                    if (rangeEffect.isPlaying)
+                    {
+                        rangeEffect.Stop();
+                    }
                 }
 
                 var rb = pod.GetComponent<Rigidbody>();
@@ -101,7 +104,10 @@ public abstract class GravityWell : MonoBehaviour
             }
             else
             {
-                rangeEffect.SetActive(true);
+                if (!rangeEffect.isPlaying)
+                {
+                    rangeEffect.Play();
+                }
                 pod.Release(this);
             }
         }
