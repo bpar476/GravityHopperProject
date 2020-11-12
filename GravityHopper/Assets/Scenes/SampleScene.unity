@@ -2550,9 +2550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff4cfedb2dc184d42bf7fc5a4eccbf06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayPeriod: 1.5
-  decelarationPeriod: 0.75
-  finalSpeed: 3
+  delayPeriod: 0.5
+  decelarationPeriod: 3
+  finalSpeed: 1.5
 --- !u!114 &1542766247
 MonoBehaviour:
   m_ObjectHideFlags: 0
