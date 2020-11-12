@@ -22,7 +22,7 @@ public class PodRotateWithVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateAngularVelocity();
+        // UpdateAngularVelocity();
     }
 
     private void UpdateAngularVelocity()
