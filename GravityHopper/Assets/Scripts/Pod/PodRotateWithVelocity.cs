@@ -12,6 +12,8 @@ public class PodRotateWithVelocity : MonoBehaviour
     [SerializeField]
     private float angularVelocityCoefficient;
 
+    private Vector3 currentKnownVelocity;
+
     private Rigidbody rb;
 
     private void Awake()
@@ -22,11 +24,20 @@ public class PodRotateWithVelocity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // UpdateAngularVelocity();
+        if (rb.velocity != currentKnownVelocity)
+        {
+            UpdateAngularVelocityAroundMovement();
+            currentKnownVelocity = rb.velocity;
+        }
     }
 
-    private void UpdateAngularVelocity()
+    private void UpdateAngularVelocityNaive()
     {
         rb.angularVelocity = new Vector3(rb.velocity.magnitude * angularVelocityCoefficient, 0, 0);
+    }
+
+    private void UpdateAngularVelocityAroundMovement()
+    {
+        rb.AddTorque(rb.velocity.normalized * 0.1f);
     }
 }

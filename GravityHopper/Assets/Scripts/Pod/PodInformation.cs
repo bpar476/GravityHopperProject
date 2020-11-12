@@ -18,13 +18,11 @@ public class PodInformation : MonoBehaviour
     {
         if (well == null)
         {
-            Debug.Log("Being grabbed by null well. This can't be good");
             return;
         }
 
         if (activeWell != null)
         {
-            Debug.Log("Being pulled by two wells at once is not supported");
             return;
         }
 
@@ -41,12 +39,10 @@ public class PodInformation : MonoBehaviour
     {
         if (well == null)
         {
-            Debug.Log("Being grabbed by null well. This can't be good");
             return;
         }
         if (activeWell != well)
         {
-            Debug.Log("Can't be released by a well that isn't the active well");
             return;
         }
 
