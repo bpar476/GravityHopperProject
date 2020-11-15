@@ -41,7 +41,7 @@ public class PodOrientation : MonoBehaviour
                 {
                     NegateCurrentTorque();
 
-                    currentTorque = new Vector3(0, 0, 0);
+                    ResetCurrentTorque();
                 }
             }
         }
@@ -76,6 +76,11 @@ public class PodOrientation : MonoBehaviour
     private void NegateCurrentTorque()
     {
         rb.AddTorque(-1 * currentTorque);
+    }
+
+    private void ResetCurrentTorque()
+    {
+        currentTorque = new Vector3(0, 0, 0);
     }
 
     private void OnDrawGizmosSelected()
