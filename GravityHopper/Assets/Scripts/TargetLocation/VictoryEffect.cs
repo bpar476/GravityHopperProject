@@ -11,10 +11,20 @@ public class VictoryEffect : MonoBehaviour
     [SerializeField]
     private float reloadPeriod;
 
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // TODO: Refactor this to use C# Event system
     public void OnVictory()
     {
         StartCoroutine(ReloadSceneAfterPeriod());
+
+        // FIXME: Turn down main theme audio
+        audioSource.Play();
     }
 
     private IEnumerator ReloadSceneAfterPeriod()
