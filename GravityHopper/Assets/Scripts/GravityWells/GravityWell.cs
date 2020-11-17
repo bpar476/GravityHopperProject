@@ -3,6 +3,7 @@
 /// <summary>
 /// Pulls the pod to it when holding click
 /// </summary>
+[RequireComponent(typeof(GravityWellSFX))]
 public abstract class GravityWell : MonoBehaviour
 {
     // FIXME: Refactor me into multiple, smaller responsibility components
@@ -50,6 +51,13 @@ public abstract class GravityWell : MonoBehaviour
     private bool isBeingClicked = false;
     private float clickTime;
 
+    private GravityWellSFX sfx;
+
+    private void Awake()
+    {
+        sfx = GetComponent<GravityWellSFX>();
+    }
+
     private void OnMouseDown()
     {
         isBeingClicked = true;
@@ -74,6 +82,7 @@ public abstract class GravityWell : MonoBehaviour
                 if (!pod.IsBeingPulled)
                 {
                     pod.Grab(this);
+                    sfx.PlayPullSFX();
                     if (rangeEffect.isPlaying)
                     {
                         rangeEffect.Stop();
