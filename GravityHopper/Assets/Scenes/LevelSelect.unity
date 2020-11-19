@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 1152090594}
   - component: {fileID: 1152090593}
   m_Layer: 5
-  m_Name: Level Select
+  m_Name: Level Select Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1526189454}
   - component: {fileID: 1526189456}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Level Select UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,8 +654,14 @@ MonoBehaviour:
   levels:
   - BuildIndex: 2
     DisplayName: 1
-  - BuildIndex: 2
+  - BuildIndex: 3
     DisplayName: 2
+  - BuildIndex: 4
+    DisplayName: 3
+  - BuildIndex: 5
+    DisplayName: 4
+  - BuildIndex: 6
+    DisplayName: 5
   sceneLoader: {fileID: 1455456480}
   start: {x: 40, y: -40}
   offset: {x: 90, y: 0}
