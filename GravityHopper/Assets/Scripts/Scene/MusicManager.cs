@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MusicManager : MonoBehaviour
+﻿public class MusicManager : Singleton<MusicManager>
 {
     // Currently does nothing but should be singleton when introducing scene changes
+    protected override MusicManager Init()
+    {
+        return this;
+    }
 }
