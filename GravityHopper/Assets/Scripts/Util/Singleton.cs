@@ -12,7 +12,7 @@ public abstract class Singleton<T> : MonoBehaviour
     {
         if (instance != null)
         {
-            GameObject.Destroy(this);
+            GameObject.Destroy(this.gameObject);
         }
         else
         {
