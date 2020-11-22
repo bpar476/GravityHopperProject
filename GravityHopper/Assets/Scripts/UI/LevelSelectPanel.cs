@@ -35,7 +35,7 @@ public class LevelSelectPanel : MonoBehaviour
 
     private void Start()
     {
-        for (var i = 0; i < levels.Length; i++)
+        for (var i = 0; i < LevelProgression.Instance.GetCurrentLevel(); i++)
         {
             Button levelButton = Instantiate(levelButtonPrefab, transform);
             var rectTransform = levelButton.GetComponent<RectTransform>();

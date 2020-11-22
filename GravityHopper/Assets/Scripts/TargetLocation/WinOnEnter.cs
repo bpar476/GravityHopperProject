@@ -12,6 +12,13 @@ public class WinOnEnter : MonoBehaviour
     [SerializeField]
     private VictoryEffect winEffect;
 
+    /// <summary>
+    /// Integer representing the number of the next level. e.g. if this is
+    /// level 1, the value should be 2.
+    /// </summary>
+    [SerializeField]
+    private int nextLevel;
+
     private void Awake()
     {
         winEffect.gameObject.SetActive(false);
@@ -23,6 +30,8 @@ public class WinOnEnter : MonoBehaviour
         {
             winEffect.gameObject.SetActive(true);
             winEffect.OnVictory();
+
+            LevelProgression.Instance.UnlockLevel(nextLevel);
         }
     }
 }
