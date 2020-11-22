@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinOnEnter : MonoBehaviour
 {
@@ -32,6 +32,14 @@ public class WinOnEnter : MonoBehaviour
             winEffect.OnVictory();
 
             LevelProgression.Instance.UnlockLevel(nextLevel);
+
+            StartCoroutine(LoadNextLevelInTwoSeconds());
         }
+    }
+
+    private IEnumerator LoadNextLevelInTwoSeconds()
+    {
+        yield return new WaitForSecondsRealtime(2);
+        SceneManager.LoadSceneAsync(LevelToSceneIndex.ConvertToSceneIndex(nextLevel));
     }
 }
