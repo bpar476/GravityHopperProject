@@ -31,7 +31,13 @@ public class WinOnEnter : MonoBehaviour
             winEffect.gameObject.SetActive(true);
             winEffect.OnVictory();
 
-            LevelProgression.Instance.UnlockLevel(nextLevel);
+            // This is a workaround to use the "next level" part of this script for loading the end of
+            // game scene. However, we don't want to unlock that scene as a "level" in the level select
+            // UI so we skip the progression if the level number is greater than the number of levels
+            if (nextLevel <= 5)
+            {
+                LevelProgression.Instance.UnlockLevel(nextLevel);
+            }
 
             StartCoroutine(LoadNextLevelInTwoSeconds());
         }
