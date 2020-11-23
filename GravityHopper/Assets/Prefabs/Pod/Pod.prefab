@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 924666128307621630}
   - component: {fileID: 924666128307621617}
   - component: {fileID: 924666128307621616}
+  - component: {fileID: 1353805999631157815}
   m_Layer: 0
   m_Name: Pod
   m_TagString: Player
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laser: {fileID: 955639738002337358}
+--- !u!114 &1353805999631157815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924666128307621574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c8980fb70591e498208039b8aed949, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &924666128175364916
 PrefabInstance:
   m_ObjectHideFlags: 0
