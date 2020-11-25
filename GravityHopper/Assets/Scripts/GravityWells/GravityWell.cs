@@ -56,6 +56,8 @@ public abstract class GravityWell : MonoBehaviour
     private void Awake()
     {
         sfx = GetComponent<GravityWellSFX>();
+        var systemMain = rangeEffect.main;
+        systemMain.startSize = 2 * wellRadius;
     }
 
     private void OnMouseDown()
