@@ -5,22 +5,33 @@ public class PodPause : MonoBehaviour
     private Vector3 storedVelocity;
     private Vector3 storedAngularVelocity;
 
+    private Rigidbody rb;
+
     private void Start()
     {
-        var rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
-        PauseManager.Instance.OnPause += () =>
-        {
-            storedVelocity = rb.velocity;
-            storedAngularVelocity = rb.angularVelocity;
-            rb.isKinematic = true;
-        };
+        PauseManager.Instance.OnPause += this.PauseRb;
+        PauseManager.Instance.OnResume += this.ResumeRb;
+    }
 
-        PauseManager.Instance.OnResume += () =>
-        {
-            rb.isKinematic = false;
-            rb.velocity = storedVelocity;
-            rb.angularVelocity = storedAngularVelocity;
-        };
+    private void OnDestroy()
+    {
+        PauseManager.Instance.OnPause -= this.PauseRb;
+        PauseManager.Instance.OnResume -= this.ResumeRb;
+    }
+
+    private void PauseRb()
+    {
+        storedVelocity = rb.velocity;
+        storedAngularVelocity = rb.angularVelocity;
+        rb.isKinematic = true;
+    }
+
+    private void ResumeRb()
+    {
+        rb.isKinematic = false;
+        rb.velocity = storedVelocity;
+        rb.angularVelocity = storedAngularVelocity;
     }
 }
