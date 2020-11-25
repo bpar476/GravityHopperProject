@@ -119,6 +119,7 @@ public abstract class GravityWell : MonoBehaviour
                 {
                     rangeEffect.Play();
                 }
+                sfx.PlayOutOfRangeSFX();
                 pod.Release(this);
             }
         }

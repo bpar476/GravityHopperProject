@@ -4988,6 +4988,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxPitchModulation: 0
+  pullSound: {fileID: 8300000, guid: 3e7a92842a4a89d4ab2cce0b77520fa7, type: 3}
+  pullSoundVolume: 0.1
+  outOfRangeSound: {fileID: 8300000, guid: 017e27c09c7965549a0f963dfa5bfc87, type: 3}
+  outOfRangeSoundVolume: 0.1
 --- !u!1001 &1274186505682523389
 PrefabInstance:
   m_ObjectHideFlags: 0

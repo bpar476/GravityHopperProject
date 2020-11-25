@@ -12,6 +12,25 @@ public class GravityWellSFX : MonoBehaviour
     [Range(0, 2)]
     private float sfxPitchModulation = 0f;
 
+    /// <summary>
+    /// Sound effect to play when pod starts being pulled by gravity well
+    /// </summary>
+    [SerializeField]
+    private AudioClip pullSound;
+    [Range(0, 1)]
+    [SerializeField]
+    private float pullSoundVolume;
+
+    /// <summary>
+    /// Sound effect to play when pod tries to grab well but is out of range
+    /// </summary>
+    [SerializeField]
+    private AudioClip outOfRangeSound;
+    [Range(0, 1)]
+    [SerializeField]
+    private float outOfRangeSoundVolume;
+
+
     private AudioSource audioSource;
 
     private void Awake()
@@ -22,6 +41,15 @@ public class GravityWellSFX : MonoBehaviour
 
     public void PlayPullSFX()
     {
+        audioSource.clip = pullSound;
+        audioSource.volume = pullSoundVolume;
+        audioSource.Play();
+    }
+
+    public void PlayOutOfRangeSFX()
+    {
+        audioSource.clip = outOfRangeSound;
+        audioSource.volume = outOfRangeSoundVolume;
         audioSource.Play();
     }
 }
