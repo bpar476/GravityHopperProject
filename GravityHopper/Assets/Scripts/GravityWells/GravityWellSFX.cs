@@ -43,13 +43,22 @@ public class GravityWellSFX : MonoBehaviour
     {
         audioSource.clip = pullSound;
         audioSource.volume = pullSoundVolume;
-        audioSource.Play();
+        PlayIfNotPlaying();
     }
 
     public void PlayOutOfRangeSFX()
     {
         audioSource.clip = outOfRangeSound;
         audioSource.volume = outOfRangeSoundVolume;
-        audioSource.Play();
+
+        PlayIfNotPlaying();
+    }
+
+    private void PlayIfNotPlaying()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
     }
 }
